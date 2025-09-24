@@ -1,0 +1,39 @@
+name: Deploy
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [master]
+  pull_request:
+    types:
+      - closed
+    branches:
+      - master
+
+permissions:
+  contents: read
+  packages: write
+
+jobs:
+  # TODO devide
+  build-and-publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build and push site docker image
+        env:
+          REPOSITORY: ${{ github.repository }}
+          REPOSITORY_OWNER: ${{ github.repository_owner }}
+          GITHUB_TOKEN: ${{ secrets.PAT_GITHUB_TOKEN }}
+        run: |
+          echo $GITHUB_TOKEN | docker login ghcr.io -u $REPOSITORY_OWNER --password-stdin
+
+          REPOSITORY_LOWER=$(echo "$REPOSITORY" | tr '[:upper:]' '[:lower:]')
+          image_name_latest=ghcr.io/$REPOSITORY_LOWER:latest
+          image_name=ghcr.io/$REPOSITORY_LOWER:$(git rev-parse --short HEAD)-$(date +%s)
+
+          docker build --no-cache -t $image_name -t $image_name_latest --quiet .
+
+          docker push $image_name --quiet
+          docker push $image_name_latest --quiet
