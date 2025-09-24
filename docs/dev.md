@@ -1,0 +1,6 @@
+- v1:
+- [ ] - docker compose for dev mode
+- [ ] - render placeholder
+- [ ] - build and test it
+- [ ] - build image on gh-actons & test it
+- [ ] - mv it to infrastructure
