@@ -1,4 +1,7 @@
 {
   "name": "iwwwanow",
-  "workspaces": ["web"]
+  "workspaces": ["web"],
+	"scripts": {
+		"web:dev": "npm run dev --workspace=web -- --host 0.0.0.0"
+	}
 }
