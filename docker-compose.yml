@@ -1,5 +1,11 @@
 services:
   # TODO npm install step with deps
+  web_image:
+    build:
+      context: ./web
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
   web_dev:
     image: node:24-alpine
     working_dir: /app
