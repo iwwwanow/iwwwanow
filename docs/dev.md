@@ -2,5 +2,9 @@
 - [x] - docker compose for dev mode
 - [x] - render placeholder
 - [x] - build and test it
-- [ ] - build image on gh-actons & test it
+- [x] - build image on gh-actons & test it
+- [ ] - add gh token to secrets and test it
 - [ ] - mv it to infrastructure
+- [ ] - needed yaml with needed packages
+- [ ] - needed outside trigger from infra
+- [ ] - nginx on infra

@@ -33,7 +33,8 @@ jobs:
           image_name_latest=ghcr.io/$REPOSITORY_LOWER:latest
           image_name=ghcr.io/$REPOSITORY_LOWER:$(git rev-parse --short HEAD)-$(date +%s)
 
-          docker build --no-cache -t $image_name -t $image_name_latest --quiet .
+          docker build --no-cache -t $image_name -t $image_name_latest \
+            -f ./web/Dockerfile ./web
 
           docker push $image_name --quiet
           docker push $image_name_latest --quiet
