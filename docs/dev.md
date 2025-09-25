@@ -3,8 +3,16 @@
 - [x] - render placeholder
 - [x] - build and test it
 - [x] - build image on gh-actons & test it
-- [ ] - add gh token to secrets and test it
+- [x] - add gh token to secrets and test it
 - [ ] - mv it to infrastructure
+  - оба сайта не отрисовываются. думаю, что ошибка в том, что нет сертификата на iwwwanow. когда настраивал первый сайт - было аналогично. на 443 порту нет ответа - весь сайт валится
+  - можно попробовать отключить iwwwanow сначала, потом протестить. затем подключить его без https? либо сразу настраивать сертификаты
+  - [ ] также нужно убрать порты наружу. общение только через nginx
+  - [ ] прорестировать соединение по http, убедиться, что ошибка в сертификатах
+  - [ ] изучить доку сертбота, посмотреть, как он должен работать с компоузом
+  x если ошибка с сертификатами. нужно запустить их вручную
+  - [ ] certbot for iwwwanow
 - [ ] - needed yaml with needed packages
 - [ ] - needed outside trigger from infra
-- [ ] - nginx on infra
+- [ ] - nginx on infra with iwwwanow.ru domain
+- [ ] - dns settings for iwwwanow.ru domain
