@@ -15,7 +15,6 @@ permissions:
   packages: write
 
 jobs:
-  # TODO devide
   build-and-publish:
     runs-on: ubuntu-latest
     steps:
@@ -25,7 +24,7 @@ jobs:
         env:
           REPOSITORY: ${{ github.repository }}
           REPOSITORY_OWNER: ${{ github.repository_owner }}
-          GITHUB_TOKEN: ${{ secrets.PAT_GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.PAT_GITHUB_TOKEN_PACKAGES }}
         run: |
           echo $GITHUB_TOKEN | docker login ghcr.io -u $REPOSITORY_OWNER --password-stdin
 
@@ -38,3 +37,19 @@ jobs:
 
           docker push $image_name --quiet
           docker push $image_name_latest --quiet
+
+  # TODO to reusable actions
+  trigger:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger infrastructure deploy
+        env:
+          REPOSITORY: ${{ github.repository }}
+          REPOSITORY_OWNER: ${{ github.repository_owner }}
+          GITHUB_TOKEN: ${{ secrets.PAT_GITHUB_TOKEN_REPOS }}
+        run: |
+          curl -X POST \
+            -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+            -H "Accept: application/vnd.github.v3+json" \
+            https://api.github.com/repos/iwwwanow/infrastructure/dispatches \
+            -d '{"event_type": "trigger_deploy"}'
