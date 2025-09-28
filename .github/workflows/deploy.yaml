@@ -39,7 +39,7 @@ jobs:
           docker push $image_name_latest --quiet
 
   # TODO to reusable actions
-  trigger:
+  deploy:
     runs-on: ubuntu-latest
     needs: build-and-publish
     steps:
