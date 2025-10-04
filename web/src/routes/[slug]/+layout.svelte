@@ -3,8 +3,9 @@
 </script>
 
 <div class="header-container">
-	<a href="/"><h2>home</h2></a>
-	<h2>{params.slug}</h2>
+	<span><a href="/">home</a></span>
+	<span>/</span>
+	<span>{params.slug}</span>
 </div>
 <hr class="wrapper-hr" />
 
