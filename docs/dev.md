@@ -16,3 +16,4 @@
 - [ ] - needed outside trigger from infra
 - [ ] - nginx on infra with iwwwanow.ru domain
 - [ ] - dns settings for iwwwanow.ru domain
+- [ ] - eslint
