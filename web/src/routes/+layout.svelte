@@ -16,8 +16,10 @@
 
 <style>
 	.root-wrapper {
-		display: flex;
 		width: 100%;
+		padding: 240px 16px 480px;
+
+		display: flex;
 		align-items: center;
 		justify-content: center;
 	}

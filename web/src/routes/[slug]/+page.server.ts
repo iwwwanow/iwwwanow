@@ -5,10 +5,11 @@ import { readFile } from 'fs/promises';
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
 
-export const load: PageServerLoad = async () => {
+export const load: PageServerLoad = async ({params}) => {
+	const filename = `${params.slug}.md`
 	const converter = new showdown.Converter()
 	const currentDir = dirname(fileURLToPath(import.meta.url));
-	const filePath = join(currentDir, 'resume.md');
+	const filePath = join(currentDir, filename);
 
 	try {
 		const text = await readFile(filePath, 'utf8');
