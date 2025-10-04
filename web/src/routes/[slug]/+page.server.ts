@@ -1,18 +1,13 @@
 import { error } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
 import showdown from 'showdown';
-import { readFile } from 'fs/promises';
-import { fileURLToPath } from 'url';
-import { dirname, join } from 'path';
 
-export const load: PageServerLoad = async ({params}) => {
-	const filename = `${params.slug}.md`
-	const converter = new showdown.Converter()
-	const currentDir = dirname(fileURLToPath(import.meta.url));
-	const filePath = join(currentDir, filename);
+export const load: PageServerLoad = async ({ params }) => {
 
 	try {
-		const text = await readFile(filePath, 'utf8');
+		const converter = new showdown.Converter()
+		const content = await import(`../../../static/content/${params.slug}.md?raw`);
+		const text = content.default
 		const html = converter.makeHtml(text);
 
 		if (html) {
