@@ -40,6 +40,13 @@
 		gap: 16px;
 
 		max-width: 210mm;
+		width: 100%;
+		max-height: 297mm;
+		overflow-y: auto;
+
+		padding: 36px 16px;
+
+		border: 2px lightgray solid;
 	}
 
 	.work-data-container {
@@ -58,6 +65,7 @@
 	}
 
 	.wrapper-hr {
-		border: 1px solid grey;
+		border: none;
+		border-bottom: 1px solid lightgray;
 	}
 </style>
