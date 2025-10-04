@@ -1,11 +1,17 @@
 <script lang="ts">
-	import favicon from '$lib/assets/favicon.svg';
+	import faviconAppleTouch from '$lib/assets/favicon/apple-touch-icon.png';
+	import favicon32 from '$lib/assets/favicon/favicon-32x32.png';
+	import favicon16 from '$lib/assets/favicon/favicon-16x16.png';
+	import siteWebmanifest from '$lib/assets/favicon/site.webmanifest';
 
 	let { children } = $props();
 </script>
 
 <svelte:head>
-	<link rel="icon" href={favicon} />
+	<link rel="apple-touch-icon" sizes="180x180" href={faviconAppleTouch}>
+	<link rel="icon" type="image/png" sizes="32x32" href={favicon32}>
+	<link rel="icon" type="image/png" sizes="16x16" href={favicon16}>
+	<link rel="manifest" href={siteWebmanifest}>
 </svelte:head>
 
 <div class="root-wrapper">
@@ -17,7 +23,7 @@
 <style>
 	.root-wrapper {
 		width: 100%;
-		padding: 240px 16px 480px;
+		padding: 40px 16px 80px;
 
 		display: flex;
 		align-items: center;
