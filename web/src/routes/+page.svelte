@@ -3,52 +3,26 @@
 </script>
 
 <!-- TODO naming -->
-<div class="root-wrapper">
-	<div class="wrapper">
-		<div class="photo-container">
-		<h1>photo</h1>
-		</div>
-		<hr class="wrapper-hr" />
-		<div class="work-data-container">
-			<a href="/resume"><h1>resume</h1></a>
-			<a href="/cv"><h1>cv</h1></a>
-			<a href={PORTFOIO_URL} target="_blank"><h1>portfolio</h1></a>
-		</div>
-		<hr class="wrapper-hr" />
-		<div class="social-container">
-			<a href="/resume"><h2>telegram</h2></a>
-			<a href="/resume"><h2>linkedin</h2></a>
-			<a href="/resume"><h2>instagram</h2></a>
-			<a href="/resume"><h2>x</h2></a>
-			<a href="/resume"><h2>soundcloud</h2></a>
-		</div>
-	</div>
+
+<div class="photo-container">
+	<h1>photo</h1>
+</div>
+<hr class="wrapper-hr" />
+<div class="work-data-container">
+	<a href="/resume"><h1>resume</h1></a>
+	<a href="/cv"><h1>cv</h1></a>
+	<a href={PORTFOIO_URL} target="_blank"><h1>portfolio</h1></a>
+</div>
+<hr class="wrapper-hr" />
+<div class="social-container">
+	<a href="/resume"><h2>telegram</h2></a>
+	<a href="/resume"><h2>github</h2></a>
+	<a href="/resume"><h2>linkedin</h2></a>
+	<a href="/resume"><h2>head hunter</h2></a>
+	<a href="/resume"><h2>habr</h2></a>
 </div>
 
 <style>
-	.root-wrapper {
-		display: flex;
-		width: 100%;
-		align-items: center;
-		justify-content: center;
-	}
-
-	.wrapper {
-		display: flex;
-		flex-direction: column;
-
-		gap: 16px;
-
-		max-width: 210mm;
-		width: 100%;
-		max-height: 297mm;
-		overflow-y: auto;
-
-		padding: 36px 16px;
-
-		border: 2px lightgray solid;
-	}
-
 	.work-data-container {
 		display: flex;
 		flex-direction: column;
